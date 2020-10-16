@@ -15,6 +15,23 @@ enum APIError: Error {
     case decodeError
     case noData
     case invalidStatusCode(Int)
+    
+    var errorMessage: String {
+        switch self {
+        case .badURL:
+            return "URL inválida."
+        case .taskError:
+            return "Erro ao executar a requisição."
+        case .noResponse:
+            return "Problemas ao receber dados do servidor."
+        case .decodeError:
+            return "Dados inválidos."
+        case .noData:
+            return "Não foi possível receber os dados."
+        case .invalidStatusCode(let code):
+            return "Erro na requisição: Status - \(code)."
+        }
+    }
 }
 
 class CarAPI {
