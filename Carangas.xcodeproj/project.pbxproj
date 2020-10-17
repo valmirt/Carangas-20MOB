@@ -154,21 +154,21 @@
 			isa = PBXGroup;
 			children = (
 				2297F60C2523E53100F89427 /* Main */,
-				C312F0EA25392F8D0082C355 /* UI */,
+				C312F0EA25392F8D0082C355 /* User Interface */,
 				C38A05BF2523ECF400861E47 /* Shared */,
 				2297F6122523E56300F89427 /* Supporting Files */,
 			);
 			path = Carangas;
 			sourceTree = "<group>";
 		};
-		C312F0EA25392F8D0082C355 /* UI */ = {
+		C312F0EA25392F8D0082C355 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
 				2297F6102523E54B00F89427 /* Form */,
 				2297F60A2523E4E300F89427 /* Visualization */,
 				2297F60E2523E53B00F89427 /* Listing */,
 			);
-			path = UI;
+			path = "User Interface";
 			sourceTree = "<group>";
 		};
 		C3294A92253B12090078458F /* Extension */ = {
