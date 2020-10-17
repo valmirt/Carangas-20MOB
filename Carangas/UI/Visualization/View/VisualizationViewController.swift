@@ -7,10 +7,13 @@
 
 import UIKit
 
+typealias FormPresenterCoordinator = Coordinator & FormPresenter
+
 final class VisualizationViewController: UIViewController {
     
     //MARK: - Properties
     var viewModel: VisualizationViewModel?
+    weak var coordinator: FormPresenterCoordinator?
     
     //MARK: - IBOutlets
     @IBOutlet weak var lbBrand: UILabel!
@@ -35,5 +38,15 @@ final class VisualizationViewController: UIViewController {
         if let vc = segue.destination as? FormViewController {
             vc.viewModel = viewModel?.getFormViewModel()
         }
+    }
+    
+    deinit {
+        coordinator?.didFinish(child: nil)
+        print("VisualizationViewController já era")
+    }
+    //MARK: - IBAction
+    @IBAction func updateCar(_ sender: UIBarButtonItem) {
+        guard let viewModel = viewModel else {return}
+        coordinator?.showForm(with: viewModel.getFormViewModel())
     }
 }

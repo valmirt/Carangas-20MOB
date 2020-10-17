@@ -11,6 +11,7 @@ final class FormViewController: UIViewController {
     
     //MARK: - Properties
     var viewModel: FormViewModel?
+    weak var coordinator: Coordinator?
 
     //MARK: - IBOutlets
     @IBOutlet weak var tfBrand: UITextField!
@@ -51,6 +52,11 @@ final class FormViewController: UIViewController {
     //MARK: - IBActions
     @IBAction func addEdit(_ sender: UIButton) {
         viewModel?.saveCar(name: tfName.text!, brand: tfBrand.text!, gasIndex: scGasType.selectedSegmentIndex, price: tfPrice.text!)
+    }
+    
+    deinit {
+        coordinator?.didFinish(child: nil)
+        print("FormViewController já era")
     }
 }
 

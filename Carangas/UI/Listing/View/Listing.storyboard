@@ -10,7 +10,7 @@
         <!--Carangas-->
         <scene sceneID="J5x-MI-WMG">
             <objects>
-                <tableViewController id="OK1-Ie-AaM" customClass="ListingTableViewController" customModule="Carangas" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListingTableViewController" id="OK1-Ie-AaM" customClass="ListingTableViewController" customModule="Carangas" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aNz-Io-ARh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,9 +44,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="DOq-3O-aPw" kind="show" identifier="carSegue" id="ycY-0g-tfh"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -57,7 +54,7 @@
                     <navigationItem key="navigationItem" title="Carangas" id="x1D-cR-YoL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uBV-U3-Te5">
                             <connections>
-                                <segue destination="3Jk-39-yy6" kind="show" identifier="addSegue" id="I7H-gR-OXX"/>
+                                <action selector="createCar:" destination="OK1-Ie-AaM" id="3dQ-SE-knk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -71,26 +68,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8v-vI-UXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="696.79999999999995" y="147.97601199400302"/>
-        </scene>
-        <!--Form-->
-        <scene sceneID="so1-cf-GUK">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Form" id="3Jk-39-yy6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Yh1-k2-LcK"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lx3-ed-27q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1291" y="57"/>
-        </scene>
-        <!--Visualization-->
-        <scene sceneID="CUz-th-8ys">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Visualization" id="DOq-3O-aPw" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="wHi-0H-m3N"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0ev-61-yoc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1291" y="243"/>
         </scene>
     </scenes>
 </document>

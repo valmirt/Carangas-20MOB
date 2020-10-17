@@ -7,11 +7,15 @@
 
 import UIKit
 
-class ListingTableViewController: UITableViewController {
+typealias VisualizationAndFormPresenterCoordinator = Coordinator & VisualizationPresenter & FormPresenter
+
+final class ListingTableViewController: UITableViewController {
     
     //MARK: - Properties
     let viewModel = ListingViewModel()
-
+    weak var coordinator: VisualizationAndFormPresenterCoordinator?
+    
+    //MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,18 +26,6 @@ class ListingTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         viewModel.carsDidUpdate = carsDidUpdate
         loadCars()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.destination {
-        case let visualizationViewController as VisualizationViewController:
-            guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            visualizationViewController.viewModel = viewModel.getVisualizationViewModel(for: indexPath)
-        case let formViewController as FormViewController:
-            formViewController.viewModel = FormViewModel()
-        default:
-            break
-        }
     }
     
     @objc private func loadCars() {
@@ -47,8 +39,18 @@ class ListingTableViewController: UITableViewController {
         }
     }
     
+    deinit {
+        coordinator?.didFinish(child: nil)
+        print("ListingTableViewController já era")
+    }
+    
+    //MARK: - IBActions
+    @IBAction func createCar(_ sender: UIBarButtonItem) {
+        coordinator?.showForm(with: FormViewModel())
+    }
+    
+    
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
     }
@@ -82,5 +84,10 @@ class ListingTableViewController: UITableViewController {
         }
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let visualizationViewModel = viewModel.getVisualizationViewModel(for: indexPath)
+        coordinator?.showVisualization(with: visualizationViewModel)
     }
 }

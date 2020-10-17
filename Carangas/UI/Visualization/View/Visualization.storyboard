@@ -12,7 +12,7 @@
         <!--Caranga-->
         <scene sceneID="Jgc-sf-Gag">
             <objects>
-                <viewController id="sgV-b4-M3W" customClass="VisualizationViewController" customModule="Carangas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VisualizationViewController" id="sgV-b4-M3W" customClass="VisualizationViewController" customModule="Carangas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O9Y-Om-VPW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +53,7 @@
                     <navigationItem key="navigationItem" title="Caranga" id="fyE-wU-0ZD">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="d2U-xp-yjG">
                             <connections>
-                                <segue destination="3Jk-39-yy6" kind="show" identifier="editSegue" id="e9Q-5N-22S"/>
+                                <action selector="updateCar:" destination="sgV-b4-M3W" id="Msl-ub-h3L"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -67,16 +67,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dts-hI-FEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1653.5999999999999" y="458.32083958020991"/>
-        </scene>
-        <!--Form-->
-        <scene sceneID="so1-cf-GUK">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Form" id="3Jk-39-yy6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Yh1-k2-LcK"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lx3-ed-27q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2306" y="458"/>
         </scene>
     </scenes>
     <resources>
