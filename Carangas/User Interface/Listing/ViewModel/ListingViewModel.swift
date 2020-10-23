@@ -16,8 +16,12 @@ final class ListingViewModel {
             carsDidUpdate?()
         }
     }
-    private let service = CarAPI()
+    private var service: CarAPIProtocol
     var carsDidUpdate: (() -> Void)?
+    
+    init(service: CarAPIProtocol = CarAPI()) {
+        self.service = service
+    }
     
     //MARK: - Methods
     var count: Int {
@@ -25,7 +29,7 @@ final class ListingViewModel {
     }
     
     func loadCars() {
-        CarAPI().loadCars { [weak self] result in
+        service.loadCars { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let cars):

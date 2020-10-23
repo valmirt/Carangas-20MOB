@@ -34,7 +34,7 @@ enum APIError: Error {
     }
 }
 
-class CarAPI {
+class CarAPI: CarAPIProtocol {
     
     private let basePath = "https://carangas.herokuapp.com/cars"
     private let config: URLSessionConfiguration = {
